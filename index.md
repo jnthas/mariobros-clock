@@ -1,6 +1,6 @@
 ### Mario Bros. version
 
-To upload the firmware, connect your ESP32 board in the USB port and click in Upload!
+To upload the firmware, connect your ESP32 board in the USB port and click on the P-Switch!
 
 <esp-web-install-button manifest="static/firmware_build/v1/manifest.json">
   
