@@ -12,7 +12,6 @@ class DateTime
     NTPClient* ntp;
 
   public:
-    DateTime();
     void begin();
     void update();
     String getFormattedTime();

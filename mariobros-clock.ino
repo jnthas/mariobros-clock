@@ -4,6 +4,8 @@
 #include "WiFiConnect.h"
 #include "DateTime.h"
 
+#define EEPROM_SIZE 512
+
 
 MatrixPanel_I2S_DMA *dma_display = nullptr;
 WiFiConnect wifi;
@@ -35,6 +37,7 @@ void displaySetup() {
 void setup() {
 
   Serial.begin(115200);
+  EEPROM.begin(EEPROM_SIZE);
 
   displaySetup();
 

@@ -1,13 +1,24 @@
 
 #include "DateTime.h"
-
-DateTime::DateTime() {
-  this->ntp = new NTPClient(udp, -3 * 3600);
-  setTime(ntp->getEpochTime());
-}
+#include <EEPROM.h>
 
 void DateTime::begin()
 {
+  int tz = EEPROM.read(7);
+  int is_neg = EEPROM.read(8);  
+  tz = tz * (is_neg == 1 ? -1 : 1);
+  
+  if (tz < -12 || tz > 14) {
+    tz = 0;
+    is_neg = 0;
+  }
+
+  Serial.print("Current Timezone: ");
+  Serial.println(tz);
+
+  this->ntp = new NTPClient(udp, tz * 3600);
+  setTime(ntp->getEpochTime());
+  
   ntp->begin();
   ntp->forceUpdate();
 }
