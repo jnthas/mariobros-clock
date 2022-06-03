@@ -1,4 +1,3 @@
-## Clockwise
 ### Mario Bros. version
 
 To upload the firmware, connect your ESP32 board in the USB port and click in Upload!
