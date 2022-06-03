@@ -2,7 +2,7 @@
 #include "DateTime.h"
 
 DateTime::DateTime() {
-  this->ntp = new NTPClient(udp, "b.st1.ntp.br", -3 * 3600, 3600000);
+  this->ntp = new NTPClient(udp, -3 * 3600);
   setTime(ntp->getEpochTime());
 }
 
