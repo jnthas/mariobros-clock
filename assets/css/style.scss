@@ -1,0 +1,23 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.btn
+{
+	background-image:url(../../../pswitch.png);
+	background-repeat:no-repeat;
+	width:97px;
+	height:98px;
+	display:block;
+	border:0px;
+}
+.btn:hover
+{
+	background-image:url(../../../pswitch_h.png);
+	background-repeat:no-repeat;
+	width:97px;
+	height:98px;
+	display:block;
+	border:0px;
+}
