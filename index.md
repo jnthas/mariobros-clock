@@ -9,3 +9,11 @@ To upload the firmware, connect your ESP32 board in the USB port and use the P-S
   <span slot="unsupported">Ah snap, your browser doesn't work!</span>
   <span slot="not-allowed">Ah snap, you are not allowed to use this on HTTP!</span>
 </esp-web-install-button>
+
+<script>
+  // preload bg images
+  var img1 = new Image();
+  var img2 = new Image();
+  img1.src="pswitch_h.png";
+  img2.src="pswitch_p.png";
+</script>
