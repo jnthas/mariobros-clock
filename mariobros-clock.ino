@@ -4,8 +4,8 @@
 #include "WiFiConnect.h"
 #include "DateTime.h"
 
-#define EEPROM_SIZE 512
 
+#define EEPROM_SIZE 512
 
 MatrixPanel_I2S_DMA *dma_display = nullptr;
 WiFiConnect wifi;

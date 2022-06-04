@@ -3,52 +3,40 @@
 
 #include <WiFiManager.h>
 #include <EEPROM.h>
+#define EEPROM_TZ_ADDR 7
+
 
 WiFiManager wifiManager;
 
 struct WiFiConnect 
 {
     std::vector<const char *> _menu = {"wifi","exit"};
-    char timezone[4]="1";
+    char timezone[4]="0";
     bool shouldSaveConfig = false;
 
     void saveTimezone(const char* value) {
-      int tz = atoi(value);
-      byte is_neg = (tz < 0 ? 1 : 0);
-      
+      signed char tz = atoi(value);
       if (tz < -12 || tz > 14) {
         tz = 0;
-        is_neg = 0;
       }
       
       Serial.print("Save Timezone: ");
       Serial.println(tz);
 
-      EEPROM.write(7, abs(tz));
+      EEPROM.write(EEPROM_TZ_ADDR, tz);
       delay(10);
-      EEPROM.write(8, is_neg);
-      delay(10);
-      if (EEPROM.commit()) {
-        Serial.print("EEPROM saved.");
-      } else {
+      if (!EEPROM.commit()) {
         Serial.print("Error saving EEPROM.");
       }
       shouldSaveConfig = false;
     }
 
-    signed int loadTimezone() {
-      int tz = EEPROM.read(7);
-      int is_neg = EEPROM.read(8);
-
-      Serial.print("Current Timezone: ");
-      Serial.println(tz * (is_neg == 1 ? -1 : 1));
-
+    signed char loadTimezone() {
+      signed char tz = EEPROM.read(EEPROM_TZ_ADDR);
       if (tz < -12 || tz > 14) {
         tz = 0;
-        is_neg = 0;
       }
-
-      return tz * (is_neg == 1 ? -1 : 1);
+      return tz;
     }
     
     void connect() 
@@ -57,7 +45,7 @@ struct WiFiConnect
       //wifiManager.resetSettings(); 
       wifiManager.setSaveConfigCallback([&](){ shouldSaveConfig = true; });
       
-      sprintf(timezone, "%d", loadTimezone());      
+      sprintf(timezone, "%d", loadTimezone());
       WiFiManagerParameter timezoneParam("tz", "Inform your timezone (GMT)", timezone, 3);
 
       wifiManager.setTitle("Clockwise Wifi Setup");

@@ -16,7 +16,6 @@
 #include "mario.h"
 #include "block.h"
 
-
 class Clockface: public IClockface {
   private:
     Adafruit_GFX* _display;

@@ -2,15 +2,13 @@
 #include "DateTime.h"
 #include <EEPROM.h>
 
+#define EEPROM_TZ_ADDR 7
+
 void DateTime::begin()
 {
-  int tz = EEPROM.read(7);
-  int is_neg = EEPROM.read(8);  
-  tz = tz * (is_neg == 1 ? -1 : 1);
-  
+  signed char tz = EEPROM.read(EEPROM_TZ_ADDR);  
   if (tz < -12 || tz > 14) {
     tz = 0;
-    is_neg = 0;
   }
 
   Serial.print("Current Timezone: ");
