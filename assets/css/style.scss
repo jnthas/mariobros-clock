@@ -1,0 +1,48 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.btn
+{
+	background-image:url(../../pswitch.png);
+	background-repeat:no-repeat;
+	width:97px;
+	height:97px;
+	display:block;
+	border:0px;
+	margin: 0 auto;
+	text-indent: -99999px;
+    	text-align: center;
+    	background-color: transparent;
+	line-height: 100;
+}
+.btn:hover
+{
+	background-image:url(../../pswitch_h.png);
+	background-repeat:no-repeat;
+	width:97px;
+	height:97px;
+	display:block;
+	border:0px;
+	margin: 0 auto;
+	text-indent: -99999px;
+    	text-align: center;
+    	background-color: transparent;
+	line-height: 100;
+}
+
+.btn:active
+{
+	background-image:url(../../pswitch_p.png);
+	background-repeat:no-repeat;
+	width:97px;
+	height:97px;
+	display:block;
+	border:0px;
+	margin: 0 auto;
+	text-indent: -99999px;
+    	text-align: center;
+    	background-color: transparent;
+	line-height: 100;
+}
