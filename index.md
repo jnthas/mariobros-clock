@@ -5,7 +5,7 @@ To upload the firmware, connect your ESP32 board in the USB port and use the P-S
 
 <esp-web-install-button manifest="static/firmware_build/v1/manifest.json">
   
-  <input class="btn" type="image" slot="activate"/>
+  <input class="btn" type="button" slot="activate"/>
   <span slot="unsupported">Ah snap, your browser doesn't work!</span>
   <span slot="not-allowed">Ah snap, you are not allowed to use this on HTTP!</span>
 </esp-web-install-button>
