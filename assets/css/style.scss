@@ -3,6 +3,11 @@
 
 @import "{{ site.theme }}";
 
+body:after{
+    display:none;
+    content: url(../../pswitch.png) url(../../pswitch_h.png) url(../../pswitch_p.png);
+}
+
 .btn
 {
 	background-image:url(../../pswitch.png);
