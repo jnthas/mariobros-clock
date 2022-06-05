@@ -1,4 +1,4 @@
-In order to use this app, you need follow [this](https://www.instructables.com/member/jnthas/) tutorial
+In order to use this web app, follow [this](https://www.instructables.com/Mario-Bros-Clock/) tutorial.
 
 ### Mario Bros. version
 To upload the firmware, connect your ESP32 board in the USB port and use the P-Switch!
