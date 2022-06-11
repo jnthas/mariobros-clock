@@ -26,6 +26,7 @@ class Clockface: public IClockface {
     Clockface(Adafruit_GFX* display);
     void setup(DateTime *dateTime);
     void update();
+    void externalEvent(int type);
 };
 
 #endif

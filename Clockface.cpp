@@ -64,6 +64,15 @@ void Clockface::update() {
   }
 }
 
+
+void Clockface::externalEvent(int type) {
+  if (type == 0) {  //TODO create an enum
+    mario.jump();
+    updateTime();
+  }
+
+}
+
 void Clockface::updateTime() {
   hourBlock.setText(String(_dateTime->getHour()));
   minuteBlock.setText(String(_dateTime->getMinute(FORMAT_TWO_DIGITS)));
