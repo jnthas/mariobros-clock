@@ -15,10 +15,10 @@ void DateTime::begin()
   Serial.println(tz);
 
   this->ntp = new NTPClient(udp, tz * 3600);
-  setTime(ntp->getEpochTime());
   
   ntp->begin();
   ntp->forceUpdate();
+  setTime(ntp->getEpochTime());
 }
 
 void DateTime::update()

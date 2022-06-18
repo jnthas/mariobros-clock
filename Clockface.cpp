@@ -70,7 +70,6 @@ void Clockface::externalEvent(int type) {
     mario.jump();
     updateTime();
   }
-
 }
 
 void Clockface::updateTime() {
