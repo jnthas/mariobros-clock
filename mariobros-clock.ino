@@ -1,13 +1,11 @@
 #include <ESP32-HUB75-MatrixPanel-I2S-DMA.h>
 #include "Clockface.h"
 #include "WiFiConnect.h"
-#include "DateTime.h"
-
-#define EEPROM_SIZE 512
+#include "CWDateTime.h"
 
 MatrixPanel_I2S_DMA *dma_display = nullptr;
 WiFiConnect wifi;
-DateTime dateTime;
+CWDateTime cwDateTime;
 Clockface *clockface;
 
 uint16_t myBLACK = dma_display->color565(0, 0, 0);
@@ -37,7 +35,6 @@ void displaySetup() {
 void setup() {
 
   Serial.begin(115200);
-  EEPROM.begin(EEPROM_SIZE);
 
   displaySetup();
 
@@ -50,11 +47,11 @@ void setup() {
   dma_display->setTextColor(myBLUE);
   dma_display->setCursor(0, 32);
   dma_display->print("connecting...");
-  
-  wifi.connect();
-  dateTime.begin();
 
-  clockface->setup(&dateTime);
+  wifi.connect();
+  cwDateTime.begin();
+
+  clockface->setup(&cwDateTime);
 }
 
 void loop() {

@@ -29,7 +29,7 @@ Clockface::Clockface(Adafruit_GFX* display) {
   Locator::provide(&eventBus);
 }
 
-void Clockface::setup(DateTime *dateTime) {
+void Clockface::setup(CWDateTime *dateTime) {
   _dateTime = dateTime;
 
   Locator::getDisplay()->setFont(&Super_Mario_Bros__24pt7b);
