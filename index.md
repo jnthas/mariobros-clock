@@ -14,7 +14,7 @@ To upload the firmware, connect your ESP32 board in the USB port and use the P-S
 
 #### Configuring WiFi
 
-The first time you run it, you need to configure the WiFi, for that connect to the **"Clockwise-Wifi"** access point with the password _12345678_ via your smartphone or laptop, click "Configure WiFi" and select your AP, put in your password and your timezone and save. Then the clock can connect to an NTP server to get the correct time. It is important to use a 2.4GHz WiFi, it will not work on 5G.
+The first time you run it, you need to configure the WiFi, for that connect to the **"Clockwise-Wifi"** access point with the password _12345678_ via your smartphone or laptop, click "Configure WiFi" and select your AP, put in your password and your timezone and save. The timezone must be one of the listed [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) e.g. America/New_York, America/Sao_Paulo, Europe/Paris, Asia/Dubai, etc. so that the clock can connect to an NTP server to get the correct time. It is important to use a 2.4GHz WiFi, it will not work on 5G.
 
 <script>
   // preload bg images
