@@ -35,7 +35,7 @@ struct WiFiConnect
       //wifiManager.resetSettings(); 
       wifiManager.setSaveConfigCallback([&](){ shouldSaveConfig = true; });
       
-      sprintf(timezone, "%s", loadTimezone());
+      sprintf(timezone, "%s", loadTimezone().c_str());
       WiFiManagerParameter timezoneParam("tz", "Inform your timezone (e.g. America/Lima)", timezone, 36);
 
       wifiManager.setTitle("Clockwise Wifi Setup");
