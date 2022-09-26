@@ -1,0 +1,8 @@
+menu "Mario Clock Configuration"
+
+  config HUB75_BLUE_GREEN_SWAP
+    bool "Swap blue and green colors"
+    help
+        Some 64x64 HUB75 displays have the green and blue pins reversed. Enable this option to swap these pins.
+
+endmenu
