@@ -2,6 +2,7 @@
 #include "Clockface.h"
 #include "WiFiConnect.h"
 #include "CWDateTime.h"
+#include "touch.h"
 
 MatrixPanel_I2S_DMA *dma_display = nullptr;
 WiFiConnect wifi;
@@ -11,8 +12,6 @@ Clockface *clockface;
 uint16_t myBLACK = dma_display->color565(0, 0, 0);
 uint16_t myWHITE = dma_display->color565(255, 255, 255);
 uint16_t myBLUE = dma_display->color565(0, 0, 255);
-
-byte displayBright = 32;
 
 void displaySetup() {
   HUB75_I2S_CFG mxconfig(
@@ -60,9 +59,16 @@ void setup() {
   cwDateTime.begin();
 
   clockface->setup(&cwDateTime);
+
+  // For touch code to update
+  matrixDisplay = dma_display;
+
+  // Adding interupts to the Trinity Touchpads
+  touchAttachInterrupt(T8, gotTouch8, threshold);
+  touchAttachInterrupt(T9, gotTouch9, threshold);
 }
 
 void loop() {
   clockface->update();
-
+  processTouch();
 }
